@@ -1,0 +1,68 @@
+/*-- scss:defaults --*/
+
+// // fonts
+// $font-family-sans-serif: "Palatino Linotype", "Book Antiqua", Palatino,
+//   FreeSerif, serif !default;
+
+// colors
+$baseColor: #0c7869;
+// $body-bg: #f0f1eb !default;
+// $body-color: #000 !default;
+// $link-color: lighten($baseColor, 5%);
+$link-color: $baseColor;
+// $selection-bg: #26351c !default;
+$code-block-border-color: $baseColor;
+
+// headings
+// $presentation-heading-font: "Palatino Linotype", "Book Antiqua", Palatino,
+//   FreeSerif, serif !default;
+// $presentation-heading-color: #383d3d !default;
+
+// /*-- scss:rules --*/
+
+// .reveal a {
+//   line-height: 1.3em;
+// }
+
+.esi-emph {
+    color: $baseColor;
+    font-weight: bold;
+}
+
+.reveal .esi-lr-gradient {
+    height: 0.7em;
+    background-image: linear-gradient(to right, $baseColor, white);
+}
+
+.reveal .esi-rl-gradient {
+    height: 1em;
+    background-image: linear-gradient(to right, white, $baseColor);
+}
+
+.reveal .esi-header {
+    position: absolute;
+    top: 0.2em;
+    left: 1em;
+    width: 60%;
+    height: 1em;
+}
+
+.reveal .esi-footer {
+    position: absolute;
+    bottom: 0.3em;
+    right: 0.9em;
+    left: 1.4em;
+    height: 1em;
+    z-index: 1;
+}
+
+.reveal .footer-row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.reveal .footer-col {
+    float: left;
+    width: 49%;
+}

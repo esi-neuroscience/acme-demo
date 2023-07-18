@@ -223,6 +223,42 @@ conda install -c conda-forge esi-acme
 ```
 :::
 
+## Using ACME
+
+. . .
+
+::: {style="font-size: 0.6em; font-family: monospace; " .position .absolute top="5em"}
+[def]{style="color: red; "} `func`(`arg1`, `arg2`, ..., `kwarg1=val1`, `kwarg2=val2`,...):
+  </br>&nbsp;&nbsp;&nbsp;do_this()
+  </br>&nbsp;&nbsp;&nbsp;...
+  </br>&nbsp;&nbsp;&nbsp;do_that()
+  </br>&nbsp;&nbsp;&nbsp;...
+  </br>&nbsp;&nbsp;&nbsp;[return]{style="color: red; "} something
+:::
+
+::: {.fragment style="font-size: 0.6em; font-family: monospace; " .position .absolute bottom="10.1em"}
+from [acme]{.esi-color} import [ParallelMap]{.esi-color}
+
+with [ParallelMap]{.esi-color}(`func`, `arg1`, `arg2`, ..., `kwarg1=val1`, `kwarg2=val2`,...,
+:::
+
+::: {.fragment style="font-size: 0.6em; font-family: monospace; " .position .absolute bottom="8.81em"}
+from [acme]{.esi-color} import [ParallelMap]{.esi-color}
+
+with [ParallelMap]{.esi-color}(`func`, `arg1`, `arg2`, ..., `kwarg1=val1`, `kwarg2=val2`,...,
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [kw1=v1]{.esi-color}, [kw2=v2]{.esi-color}, ...) as [pmap]{.esi-color}:
+:::
+
+::: {.fragment style="font-size: 0.6em; font-family: monospace; " .position .absolute bottom="7.51em"}
+from [acme]{.esi-color} import [ParallelMap]{.esi-color}
+
+with [ParallelMap]{.esi-color}(`func`, `arg1`, `arg2`, ..., `kwarg1=val1`, `kwarg2=val2`,...,
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [kw1=v1]{.esi-color}, [kw2=v2]{.esi-color}, ...) as [pmap]{.esi-color}:
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pmap]{.esi-color}.compute()
+:::
+
 ## An Unpractical Example
 
 ```{.python}
@@ -375,30 +411,9 @@ if __name__ == "__main__":
 [2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
 ```
 
-## Back To SLURM Connectomes... {auto-animate=true}
-
-### ...in Jupyter
-
-```{.python data-id="jupyter1" style="font-size: 0.8em; "}
-[1]: from connectome import compute_connectome, subjectList
-     from acme import ParallelMap, esi_cluster_setup
-```
-
-```{.python data-id="jupyter2" style="font-size: 0.8em; "}
-[2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
-```
-```{data-id="jupyter2" style="font-size: 0.4em; "}
-<slurm_cluster_setup> Requested worker-count 10 exceeds `n_workers_startup`: waiting for 1 workers to come online, then proceed
-<slurm_cluster_setup> SLURM workers ready: 1/1 	[elapsed time 00:05 | timeout at 01:00]
-<slurm_cluster_setup> Cluster dashboard accessible at http://10.100.32.17:40043/status
-```
-
 . . .
 
-```{.python data-id="jupyter3" style="font-size: 0.8em; "}
-[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
-         results = pmap.compute()
-```
+[[Demo Time!]{.esi-emph}]{.position .absolute bottom="4em" left="5em" style="font-size: 1.5em; "}
 
 ## Back To SLURM Connectomes... {auto-animate=true}
 
@@ -412,98 +427,119 @@ if __name__ == "__main__":
 ```{.python data-id="jupyter2" style="font-size: 0.8em; "}
 [2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
 ```
-```{data-id="jupyter2" style="font-size: 0.4em; "}
-<slurm_cluster_setup> Requested worker-count 10 exceeds `n_workers_startup`: waiting for 1 workers to come online, then proceed
-<slurm_cluster_setup> SLURM workers ready: 1/1 	[elapsed time 00:05 | timeout at 01:00]
-<slurm_cluster_setup> Cluster dashboard accessible at http://10.100.32.17:40043/status
-```
-
-```{.python data-id="jupyter3" style="font-size: 0.8em; "}
-[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
-         results = pmap.compute()
-```
-```{data-id="jupyter3" style="font-size: 0.4em; " code-line-numbers="2-3"}
-<ParallelMap> INFO: This is ACME v. 2022.12
-<ParallelMap> INFO: Attaching to global parallel computing client <Client: 'tcp://10.100.32.17:33661' processes=10 threads=10, memory=74.50 GiB>
-```
-
-. . .
-
-::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1em; border: 0.1em solid red; " .absolute top="10.5em" left="0em" .fade}
-:::
-
-
-## Back To SLURM Connectomes... {auto-animate=true}
-
-### ...in Jupyter
-
-```{.python data-id="jupyter1" style="font-size: 0.8em; "}
-[1]: from connectome import compute_connectome, subjectList
-     from acme import ParallelMap, esi_cluster_setup
-```
-
-```{.python data-id="jupyter2" style="font-size: 0.8em; "}
-[2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
-```
-```{data-id="jupyter2" style="font-size: 0.4em; "}
-<slurm_cluster_setup> Requested worker-count 10 exceeds `n_workers_startup`: waiting for 1 workers to come online, then proceed
-<slurm_cluster_setup> SLURM workers ready: 1/1 	[elapsed time 00:05 | timeout at 01:00]
-<slurm_cluster_setup> Cluster dashboard accessible at http://10.100.32.17:40043/status
-```
-
-```{.python data-id="jupyter3" style="font-size: 0.8em; "}
-[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
-         results = pmap.compute()
-```
-```{data-id="jupyter3" style="font-size: 0.4em; color: red; " code-line-numbers="2-3"}
-<ParallelMap> INFO: This is ACME v. 2022.12
-<ParallelMap> INFO: Attaching to global parallel computing client <Client: 'tcp://10.100.32.17:33661' processes=10 threads=10, memory=74.50 GiB>
-<ParallelMap> INFO: Preparing 21 parallel calls of `compute_connectome` using 10 workers
-<ParallelMap> INFO: Log information available at /cs/slurm/fuertingers/fuertingers_20230207-093941
-100% |██████████| 21/21 [01:46<00:00]
-<ParallelMap> INFO: SUCCESS! Finished parallel computation. Results have been saved to /cs/home/fuertingers/ACME_20230207-094014-740639/compute_connectome.h5 with links to data payload located in /cs/home/fuertingers/ACME_20230207-094014-740639/compute_connectome_payload
-```
-
-::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1em; border: 0.1em solid red; " .absolute top="10.5em" left="0em" .fade}
-:::
-
-## Back To SLURM Connectomes... {auto-animate=true}
-
-### ...in Jupyter
-
-```{.python data-id="jupyter1" style="font-size: 0.8em; "}
-[1]: from connectome import compute_connectome, subjectList
-     from acme import ParallelMap, esi_cluster_setup
-```
-
-```{.python data-id="jupyter2" style="font-size: 0.8em; "}
-[2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
-```
-```{data-id="jupyter2" style="font-size: 0.4em; "}
-<slurm_cluster_setup> Requested worker-count 10 exceeds `n_workers_startup`: waiting for 1 workers to come online, then proceed
-<slurm_cluster_setup> SLURM workers ready: 1/1 	[elapsed time 00:05 | timeout at 01:00]
-<slurm_cluster_setup> Cluster dashboard accessible at http://10.100.32.17:40043/status
-```
-
-```{.python data-id="jupyter3" style="font-size: 0.8em; "}
-[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
-         results = pmap.compute()
-```
-```{data-id="jupyter3" style="font-size: 0.4em; "}
-<ParallelMap> INFO: This is ACME v. 2022.12
-<ParallelMap> INFO: Attaching to global parallel computing client <Client: 'tcp://10.100.32.17:33661' processes=10 threads=10, memory=74.50 GiB>
-<ParallelMap> INFO: Preparing 21 parallel calls of `compute_connectome` using 10 workers
-<ParallelMap> INFO: Log information available at /cs/slurm/fuertingers/fuertingers_20230207-093941
-100% |██████████| 21/21 [01:46<00:00]
-<ParallelMap> INFO: SUCCESS! Finished parallel computation. Results have been saved to /cs/home/fuertingers/ACME_20230207-094014-740639/compute_connectome.h5 with links to data payload located in /cs/home/fuertingers/ACME_20230207-094014-740639/compute_connectome_payload
-```
-
-::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1.5em; border: 0.1em solid red; " .absolute top="12.9em" left="0em" .fade}
+:::{data-id="jupyter2" style="font-size: 0.4em; font-family: monospace; "}
+`<slurm_cluster_setup>`{style="color: black; "} SLURM workers ready: 10/10 	[elapsed time 00:13 | timeout at 01:00]</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Parallel computing client ready, dashboard accessible at http://10.100.32.17:37981/status
 :::
 
 . . .
 
-[...what?]{.position .absolute left="10em" bottom="1em"}
+```{.python data-id="jupyter3" style="font-size: 0.8em; "}
+[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
+         results = pmap.compute()
+```
+
+## Back To SLURM Connectomes... {auto-animate=true}
+
+### ...in Jupyter
+
+```{.python data-id="jupyter1" style="font-size: 0.8em; "}
+[1]: from connectome import compute_connectome, subjectList
+     from acme import ParallelMap, esi_cluster_setup
+```
+
+```{.python data-id="jupyter2" style="font-size: 0.8em; "}
+[2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
+```
+:::{data-id="jupyter2" style="font-size: 0.4em; font-family: monospace; "}
+`<slurm_cluster_setup>`{style="color: black; "} SLURM workers ready: 10/10 	[elapsed time 00:13 | timeout at 01:00]</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Parallel computing client ready, dashboard accessible at http://10.100.32.17:37981/status
+:::
+
+```{.python data-id="jupyter3" style="font-size: 0.8em; "}
+[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
+         results = pmap.compute()
+```
+:::{.scrollable style="font-size: 0.4em; font-family: monospace; "}
+[ACME [> ANNOUNCE <]{style="color: DodgerBlue; "}  This is ACME v. 2023.4]{style="font-weight: bold; "}</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Attaching to parallel computing client <Client: 'tcp://10.100.32.17:32851' processes=10 threads=10, memory=74.50 GiB>
+:::
+
+. . .
+
+::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1em; border: 0.1em solid red; " .absolute top="10.3em" left="-0.2em" .fade}
+:::
+
+
+## Back To SLURM Connectomes... {auto-animate=true auto-animate-unmatched="false" transition="fade-in"}
+
+### ...in Jupyter
+
+```{.python data-id="jupyter1" style="font-size: 0.8em; "}
+[1]: from connectome import compute_connectome, subjectList
+     from acme import ParallelMap, esi_cluster_setup
+```
+
+```{.python data-id="jupyter2" style="font-size: 0.8em; "}
+[2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
+```
+:::{data-id="jupyter2" style="font-size: 0.4em; font-family: monospace; "}
+`<slurm_cluster_setup>`{style="color: black; "} SLURM workers ready: 10/10 	[elapsed time 00:13 | timeout at 01:00]</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Parallel computing client ready, dashboard accessible at http://10.100.32.17:37981/status
+:::
+
+```{.python data-id="jupyter3" style="font-size: 0.8em; "}
+[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
+         results = pmap.compute()
+```
+:::{.scrollable style="font-size: 0.4em; font-family: monospace; "}
+[ACME [> ANNOUNCE <]{style="color: DodgerBlue; "} This is ACME v. 2023.4]{style="font-weight: bold; "}</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Attaching to parallel computing client <Client: 'tcp://10.100.32.17:32851' processes=10 threads=10, memory=74.50 GiB></br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Preparing 21 parallel calls of `compute_connectome` using 10 workers</br>
+100% |██████████| 21/21 [02:00<00:00]</br>
+[ACME [> ANNOUNCE <]{style="color: DodgerBlue; "} SUCCESS!]{style="font-weight: bold; "}</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Results have been saved to /cs/home/fuertingers/neuro-bsp/compute_connectome.h5
+:::
+
+::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1em; border: 0.1em solid red; " .absolute top="10.3em" left="-0.2em" .fade}
+:::
+
+## Back To SLURM Connectomes... {auto-animate=true auto-animate-unmatched="false"}
+
+### ...in Jupyter
+
+```{.python data-id="jupyter1" style="font-size: 0.8em; "}
+[1]: from connectome import compute_connectome, subjectList
+     from acme import ParallelMap, esi_cluster_setup
+```
+
+```{.python data-id="jupyter2" style="font-size: 0.8em; "}
+[2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
+```
+:::{data-id="jupyter2" style="font-size: 0.4em; font-family: monospace; "}
+`<slurm_cluster_setup>`{style="color: black; "} SLURM workers ready: 10/10 	[elapsed time 00:13 | timeout at 01:00]</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Parallel computing client ready, dashboard accessible at http://10.100.32.17:37981/status
+:::
+
+```{.python data-id="jupyter3" style="font-size: 0.8em; "}
+[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
+         results = pmap.compute()
+```
+:::{.scrollable data-id="jupyter3" style="font-size: 0.4em; font-family: monospace; "}
+[ACME [> ANNOUNCE <]{style="color: DodgerBlue; "} This is ACME v. 2023.4]{style="font-weight: bold; "}</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Attaching to parallel computing client <Client: 'tcp://10.100.32.17:32851' processes=10 threads=10, memory=74.50 GiB></br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Preparing 21 parallel calls of `compute_connectome` using 10 workers</br>
+100% |██████████| 21/21 [02:00<00:00]</br>
+[ACME [> ANNOUNCE <]{style="color: DodgerBlue; "} SUCCESS!]{style="font-weight: bold; "}</br>
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Results have been saved to /cs/home/fuertingers/neuro-bsp/compute_connectome.h5
+:::
+
+::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 0.6em; border: 0.1em solid red; " .absolute top="12.9em" left="-0.2em" .fade}
+:::
+
+. . .
+
+[...what?]{.position .absolute left="10em" bottom="1.5em"}
 
 ## Back To SLURM Connectomes...
 

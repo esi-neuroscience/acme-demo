@@ -225,10 +225,25 @@ conda install -c conda-forge esi-acme
 
 ## Using ACME
 
-. . .
+:::: columns
 
-::: {style="font-size: 0.6em; font-family: monospace; " .position .absolute top="5em"}
-[def]{style="color: red; "} `func`(`arg1`, `arg2`, ..., `kwarg1=val1`, `kwarg2=val2`,...):
+::: {.column width="50%" .position .absolute left="1em"}
+
+::: {.fragment .fade-in style="font-size: 0.6em; font-family: monospace; " .position .absolute top="2.5em"}
+[def]{style="color: red; "} func(
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [arg1]{style="color: blue; "},
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [arg2]{style="color: blue; "},
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ...,
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [kwarg1=val1]{style="color: mediumorchid; "},
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [kwarg2=val2]{style="color: mediumorchid; "},
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ...):
+  </br>&nbsp;&nbsp;&nbsp;...
   </br>&nbsp;&nbsp;&nbsp;do_this()
   </br>&nbsp;&nbsp;&nbsp;...
   </br>&nbsp;&nbsp;&nbsp;do_that()
@@ -236,28 +251,80 @@ conda install -c conda-forge esi-acme
   </br>&nbsp;&nbsp;&nbsp;[return]{style="color: red; "} something
 :::
 
-::: {.fragment style="font-size: 0.6em; font-family: monospace; " .position .absolute bottom="10.1em"}
-from [acme]{.esi-color} import [ParallelMap]{.esi-color}
-
-with [ParallelMap]{.esi-color}(`func`, `arg1`, `arg2`, ..., `kwarg1=val1`, `kwarg2=val2`,...,
 :::
 
-::: {.fragment style="font-size: 0.6em; font-family: monospace; " .position .absolute bottom="8.81em"}
-from [acme]{.esi-color} import [ParallelMap]{.esi-color}
+::: {.column width="60%" .position .absolute right="0em"}
 
-with [ParallelMap]{.esi-color}(`func`, `arg1`, `arg2`, ..., `kwarg1=val1`, `kwarg2=val2`,...,
-  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  [kw1=v1]{.esi-color}, [kw2=v2]{.esi-color}, ...) as [pmap]{.esi-color}:
+::: {.fragment .fade-in style="font-size: 0.6em; font-family: monospace; " .position .absolute top="-0.5em"}
+from [acme]{.esi-color} import [ParallelMap]{.esi-color}
 :::
 
-::: {.fragment style="font-size: 0.6em; font-family: monospace; " .position .absolute bottom="7.51em"}
-from [acme]{.esi-color} import [ParallelMap]{.esi-color}
-
-with [ParallelMap]{.esi-color}(`func`, `arg1`, `arg2`, ..., `kwarg1=val1`, `kwarg2=val2`,...,
-  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  [kw1=v1]{.esi-color}, [kw2=v2]{.esi-color}, ...) as [pmap]{.esi-color}:
-  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pmap]{.esi-color}.compute()
+::: {.fragment .fade-in style="font-size: 0.6em; font-family: monospace; " .position .absolute top="1.0em"}
+with [ParallelMap]{.esi-color}(
 :::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="1.0em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  func,
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="2.4em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [[arg11,arg12,...]]{style="color: blue; "},
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="3.7em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [[arg21,arg22,...]]{style="color: blue; "},
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="5.0em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ...,
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="6.3em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [kwarg1=[val11,val12,...]]{style="color: mediumorchid; "},
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="7.6em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [kwarg2=[val21,val22,...]]{style="color: mediumorchid; "},
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="8.9em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ...,
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="10.2em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [kw1=v1]{.esi-color},
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="11.5em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  [kw2=v2]{.esi-color},
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="12.8em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ...) as [pmap]{.esi-color}:
+:::
+
+::: {.fragment .fade-up style="font-size: 0.6em; font-family: monospace; " .position .absolute top="14.1em"}
+  </br>&nbsp;&nbsp;&nbsp;&nbsp;
+  [pmap]{.esi-color}.compute()
+:::
+
+::: {.fragment .fade-left style="font-size: 1.0em; " .position .absolute top="11em"}
+  Now to [actually]{.esi-emph} using ACME
+:::
+
+:::
+
+::::
 
 ## An Unpractical Example
 
@@ -415,7 +482,7 @@ if __name__ == "__main__":
 
 [[Demo Time!]{.esi-emph}]{.position .absolute bottom="4em" left="5em" style="font-size: 1.5em; "}
 
-## Back To SLURM Connectomes... {auto-animate=true}
+## Back To SLURM Connectomes...
 
 ### ...in Jupyter
 
@@ -427,7 +494,7 @@ if __name__ == "__main__":
 ```{.python data-id="jupyter2" style="font-size: 0.8em; "}
 [2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
 ```
-:::{data-id="jupyter2" style="font-size: 0.4em; font-family: monospace; "}
+:::{.fragment .fade-up style="font-size: 0.4em; font-family: monospace; "}
 `<slurm_cluster_setup>`{style="color: black; "} SLURM workers ready: 10/10 	[elapsed time 00:13 | timeout at 01:00]</br>
 [ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Parallel computing client ready, dashboard accessible at http://10.100.32.17:37981/status
 :::
@@ -439,39 +506,16 @@ if __name__ == "__main__":
          results = pmap.compute()
 ```
 
-## Back To SLURM Connectomes... {auto-animate=true}
-
-### ...in Jupyter
-
-```{.python data-id="jupyter1" style="font-size: 0.8em; "}
-[1]: from connectome import compute_connectome, subjectList
-     from acme import ParallelMap, esi_cluster_setup
-```
-
-```{.python data-id="jupyter2" style="font-size: 0.8em; "}
-[2]: myClient = esi_cluster_setup(n_workers=10, partition="8GBXS")
-```
-:::{data-id="jupyter2" style="font-size: 0.4em; font-family: monospace; "}
-`<slurm_cluster_setup>`{style="color: black; "} SLURM workers ready: 10/10 	[elapsed time 00:13 | timeout at 01:00]</br>
-[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Parallel computing client ready, dashboard accessible at http://10.100.32.17:37981/status
-:::
-
-```{.python data-id="jupyter3" style="font-size: 0.8em; "}
-[3]: with ParallelMap(compute_connectome, subjectList, result_shape=(264, 264, None))) as pmap:
-         results = pmap.compute()
-```
-:::{.scrollable style="font-size: 0.4em; font-family: monospace; "}
+:::{.fragment .fade-up style="font-size: 0.4em; font-family: monospace; "}
 [ACME [> ANNOUNCE <]{style="color: DodgerBlue; "}  This is ACME v. 2023.4]{style="font-weight: bold; "}</br>
 [ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Attaching to parallel computing client <Client: 'tcp://10.100.32.17:32851' processes=10 threads=10, memory=74.50 GiB>
 :::
 
-. . .
-
-::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1em; border: 0.1em solid red; " .absolute top="10.3em" left="-0.2em" .fade}
+::: {.fragment .fade-in data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1em; border: 0.1em solid red; " .absolute top="10.3em" left="-0.2em" .fade}
 :::
 
 
-## Back To SLURM Connectomes... {auto-animate=true auto-animate-unmatched="false" transition="fade-in"}
+## Back To SLURM Connectomes... {auto-animate=true auto-animate-unmatched="false" transition="none"}
 
 ### ...in Jupyter
 
@@ -531,7 +575,7 @@ if __name__ == "__main__":
 [ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Preparing 21 parallel calls of `compute_connectome` using 10 workers</br>
 100% |██████████| 21/21 [02:00<00:00]</br>
 [ACME [> ANNOUNCE <]{style="color: DodgerBlue; "} SUCCESS!]{style="font-weight: bold; "}</br>
-[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Results have been saved to /cs/home/fuertingers/neuro-bsp/compute_connectome.h5
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Results have been saved to /cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome.h5
 :::
 
 ::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 0.6em; border: 0.1em solid red; " .absolute top="12.9em" left="-0.2em" .fade}
@@ -551,7 +595,7 @@ if __name__ == "__main__":
 . . .
 
 ```{data-id="jupyter4" style="font-size: 0.4em; "}
-'/cs/home/fuertingers/ACME_20230206-122528-965199/compute_connectome.h5'
+'/cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome.h5'
 ```
 
 . . .
@@ -563,11 +607,11 @@ if __name__ == "__main__":
 . . .
 
 ```{data-id="jupyter5" style="font-size: 0.4em; "}
-['/cs/home/fuertingers/ACME_20230206-122528-965199/compute_connectome_payload/compute_connectome_0.h5',
- '/cs/home/fuertingers/ACME_20230206-122528-965199/compute_connectome_payload/compute_connectome_1.h5',
- '/cs/home/fuertingers/ACME_20230206-122528-965199/compute_connectome_payload/compute_connectome_2.h5',
- '/cs/home/fuertingers/ACME_20230206-122528-965199/compute_connectome_payload/compute_connectome_3.h5',
- '/cs/home/fuertingers/ACME_20230206-122528-965199/compute_connectome_payload/compute_connectome_4.h5']
+['/cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome_payload/compute_connectome_0.h5',
+ '/cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome_payload/compute_connectome_1.h5',
+ '/cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome_payload/compute_connectome_2.h5',
+ '/cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome_payload/compute_connectome_3.h5',
+ '/cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome_payload/compute_connectome_4.h5']
 ```
 
 ::: {.incremental style="font-size: 0.85em; "}

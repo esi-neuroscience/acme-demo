@@ -511,7 +511,7 @@ if __name__ == "__main__":
 [ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Attaching to parallel computing client <Client: 'tcp://10.100.32.17:32851' processes=10 threads=10, memory=74.50 GiB>
 :::
 
-::: {.fragment .fade-in data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1em; border: 0.1em solid red; " .absolute top="10.3em" left="-0.2em" .fade}
+::: {.fragment .fade-in data-id="box1" style="background: rgba(0,0,0,0); width: 95%; height: 1em; border: 0.1em solid red; " .absolute top="10.3em" left="-0.2em" .fade}
 :::
 
 
@@ -542,10 +542,10 @@ if __name__ == "__main__":
 [ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Preparing 21 parallel calls of `compute_connectome` using 10 workers</br>
 100% |██████████| 21/21 [02:00<00:00]</br>
 [ACME [> ANNOUNCE <]{style="color: DodgerBlue; "} SUCCESS!]{style="font-weight: bold; "}</br>
-[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Results have been saved to /cs/home/fuertingers/neuro-bsp/compute_connectome.h5
+[ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Results have been saved to /cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome.h5
 :::
 
-::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 1em; border: 0.1em solid red; " .absolute top="10.3em" left="-0.2em" .fade}
+::: {data-id="box1" style="background: rgba(0,0,0,0); width: 95%; height: 1em; border: 0.1em solid red; " .absolute top="10.3em" left="-0.2em" .fade}
 :::
 
 ## Back To SLURM Connectomes... {auto-animate=true auto-animate-unmatched="false"}
@@ -578,7 +578,7 @@ if __name__ == "__main__":
 [ACME [- INFO -]{style="color: DodgerBlue; "}]{style="font-weight: bold; "} Results have been saved to /cs/home/fuertingers/ACME_20230720-122528-965199/compute_connectome.h5
 :::
 
-::: {data-id="box1" style="background: rgba(0,0,0,0); width: 100%; height: 0.6em; border: 0.1em solid red; " .absolute top="12.9em" left="-0.2em" .fade}
+::: {data-id="box1" style="background: rgba(0,0,0,0); width: 83%; height: 1em; border: 0.1em solid red; " .absolute top="12.9em" left="-0.2em" .fade}
 :::
 
 . . .
@@ -734,12 +734,12 @@ with ParallelMap(freesurf_preproc, np.arange(101, 151)) as pmap:
 ## ACME is [not]{style="color: red"}
 
 ::: {.incremental style="font-size: 1.0em; " .absolute .position top="3em"}
-- another `sbatch` wrapper
-- tuned for best performance possible
 - a general purpose parallelization framework
 - up for tasks requiring inter-worker communication
 - built for for processing shared distributed data structures
-- a great way to tackle CFD problems/PDE discretizations
+- the best way to tackle CFD problems/PDE discretizations
+- tuned for bleeding edge performance
+- another `sbatch` wrapper
 :::
 
 ## ACME [is]{.esi-emph}
@@ -750,7 +750,7 @@ with ParallelMap(freesurf_preproc, np.arange(101, 151)) as pmap:
   neural networks, fMRI and is the parallelization engine of
   ![](imgs/syncopy_logo.svg){.absolute .position top="3.7em" right="2.8em" width="15%"}
 - based on existing [robust parallel computing libraries]{.esi-emph} (dask, dask-jobqueue)
-- [small network footprint]{.esi-emph} by shifting concurrency to filesystem
+- [small network footprint]{.esi-emph} by shifting concurrency to the filesystem
 - fully [open-source on [GitHub](https://github.com/esi-neuroscience/acme)]{.esi-emph} PRs welcome!
 - open to [[include more HPC centers]{.esi-epmh}]{.esi-emph}
 

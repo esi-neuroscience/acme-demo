@@ -749,7 +749,7 @@ with ParallelMap(freesurf_preproc, np.arange(101, 151)) as pmap:
 - [application-agnostic]{.esi-emph}: has been used for math optimization,
   neural networks, fMRI and is the parallelization engine of
   ![](imgs/syncopy_logo.svg){.absolute .position top="3.7em" right="2.8em" width="15%"}
-- based on existing [robust parallel computing libraries]{.esi-emph} (dask, dask-jobqueue)
+- based on existing [robust parallel computing libraries]{.esi-emph} (`dask`, `dask-jobqueue`)
 - [small network footprint]{.esi-emph} by shifting concurrency to the filesystem
 - fully [open-source on [GitHub](https://github.com/esi-neuroscience/acme)]{.esi-emph} PRs welcome!
 - open to [[include more HPC centers]{.esi-epmh}]{.esi-emph}

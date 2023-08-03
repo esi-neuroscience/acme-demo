@@ -11,9 +11,9 @@ Demo and Examples showing how to use ACME.
 
 ### Slidedeck
 
-The slides were built with [Quarto](https://quarto.org/). To make the
-Quarto VS Code extension (and Quarto's web server) pick up the HTML build,
-first render the project
+The slides were built with [Quarto](https://quarto.org/) version 1.2.313.
+To make the Quarto VS Code extension (and Quarto's web server) pick up
+the HTML build, first render the project
 
 ```shell
 quarto render
